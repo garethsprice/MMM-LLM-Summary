@@ -1,0 +1,9 @@
+{
+  "name": "mmm-llm-summary",
+  "version": "1.0.0",
+  "description": "MagicMirror module that uses an LLM to summarize other dashboard modules",
+  "main": "MMM-LLM-Summary.js",
+  "dependencies": {
+    "openai": "^4.0.0"
+  }
+}
