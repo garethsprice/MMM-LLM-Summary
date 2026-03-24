@@ -3,14 +3,34 @@
   "version": "1.0.0",
   "description": "MagicMirror module that uses an LLM to summarize other dashboard modules",
   "main": "MMM-LLM-Summary.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/garethsprice/MMM-LLM-Summary"
+  },
+  "keywords": [
+    "MagicMirror",
+    "MagicMirror2",
+    "LLM",
+    "AI",
+    "summary",
+    "OpenAI",
+    "Anthropic",
+    "Ollama",
+    "smart-mirror"
+  ],
   "scripts": {
     "test": "jest --verbose",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "openai": "^4.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "eslint": "^9.39.4",
     "jest": "^29.0.0",
     "jest-environment-jsdom": "^30.3.0",
     "typescript": "^5.0.0"
