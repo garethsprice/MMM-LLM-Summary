@@ -98,9 +98,11 @@ module.exports = NodeHelper.create({
   buildUserContent: function (moduleData, previousData, userPrompt) {
     var prompt = userPrompt || "Give me a brief summary of what's happening on my dashboard right now. Focus on what changed or is noteworthy.";
 
+    var content;
+
     // If no previous data, send everything
     if (!previousData) {
-      var content = "Here is the current data from my dashboard modules:\n\n";
+      content = "Here is the current data from my dashboard modules:\n\n";
       for (var key in moduleData) {
         if (moduleData[key]) {
           content += "--- " + key + " ---\n" + moduleData[key] + "\n\n";
@@ -125,7 +127,7 @@ module.exports = NodeHelper.create({
       }
     }
 
-    var content = "";
+    content = "";
 
     if (changed.length > 0 || added.length > 0) {
       if (changed.length > 0) {
