@@ -4,6 +4,10 @@
   font-weight: 300;
   line-height: 1.4;
   color: var(--color-text-bright, #fff);
+  text-align: justify;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .llm-summary-meta {
