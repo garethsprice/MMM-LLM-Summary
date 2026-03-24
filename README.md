@@ -4,7 +4,7 @@ A [MagicMirror²](https://magicmirror.builders/) module that uses an LLM to summ
 
 Supports any OpenAI-compatible API — OpenAI, Anthropic, Ollama, LM Studio, and more.
 
-![Screenshot](img/screenshot.png)
+![Screenshot](screenshot.png)
 
 ## Features
 
@@ -25,7 +25,17 @@ cd MMM-LLM-Summary
 npm install --production
 ```
 
+## Update
+
+```bash
+cd ~/MagicMirror/modules/MMM-LLM-Summary
+git pull
+npm install --production
+```
+
 ## Configuration
+
+Add the following to the `modules` array in your `config/config.js`:
 
 ```javascript
 {
@@ -36,22 +46,9 @@ npm install --production
     apiKey: "your-api-key",
     baseURL: "https://api.anthropic.com/v1/",
     model: "claude-haiku-4-5-20251001",
-    maxTokens: 200,
-    temperature: 0.7,
-    regenerateInterval: 3600000,    // baseline: 60 min
-    fastRegenerateInterval: 900000, // after data change: 15 min
-    cacheTTL: 300000,               // cache for 5 min
-    collectDelay: 15000,            // wait 15s for modules to load
-    quietHoursStart: 22,            // pause at 10pm
-    quietHoursEnd: 8,               // resume at 8am
-    showModel: true,
-    showTimestamp: true,
-    showTokenSavings: true,
-    systemPrompt: "Summarize this dashboard briefly in 2-3 sentences. Do not use emojis.",
     modules: [
       { name: "Weather", selector: ".weather" },
       { name: "Calendar", selector: ".calendar" },
-      { name: "Pull Requests", selector: ".MMM-GitHub-Monitor", maxLength: 2000 },
     ],
   },
 }
