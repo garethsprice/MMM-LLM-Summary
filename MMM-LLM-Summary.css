@@ -13,3 +13,9 @@
 .llm-summary-meta {
   padding-top: 6px;
 }
+
+.llm-paused {
+  margin-left: 8px;
+  font-weight: 300;
+  color: #6B7280;
+}
