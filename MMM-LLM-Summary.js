@@ -56,6 +56,11 @@ Module.register("MMM-LLM-Summary", {
     setInterval(function () {
       self.tick();
     }, 60000);
+
+    // Refresh relative timestamps every 30s
+    setInterval(function () {
+      self.refreshTimes();
+    }, 30000);
   },
 
   tick: function () {
@@ -237,7 +242,11 @@ Module.register("MMM-LLM-Summary", {
       metaParts.push("cached");
     }
     if (this.config.showTimestamp && this.summary.generatedAt) {
-      metaParts.push(this.formatTime(this.summary.generatedAt));
+      var timeSpan = document.createElement("span");
+      timeSpan.className = "llm-time";
+      timeSpan.dataset.generatedAt = this.summary.generatedAt;
+      timeSpan.innerHTML = this.formatTime(this.summary.generatedAt);
+      metaParts.push(timeSpan.outerHTML);
     }
     if (metaParts.length > 0) {
       meta.innerHTML = metaParts.join(" · ");
@@ -245,6 +254,16 @@ Module.register("MMM-LLM-Summary", {
     }
 
     return wrapper;
+  },
+
+  refreshTimes: function () {
+    var els = document.querySelectorAll(".llm-summary .llm-time");
+    for (var i = 0; i < els.length; i++) {
+      var generatedAt = els[i].dataset.generatedAt;
+      if (generatedAt) {
+        els[i].innerHTML = this.formatTime(generatedAt);
+      }
+    }
   },
 
   formatTime: function (isoString) {
