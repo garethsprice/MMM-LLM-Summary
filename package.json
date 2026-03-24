@@ -29,7 +29,7 @@
     "openai": "^4.0.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.4",
+    "@eslint/js": "^10.0.1",
     "eslint": "^9.39.4",
     "jest": "^29.0.0",
     "jest-environment-jsdom": "^30.3.0",
