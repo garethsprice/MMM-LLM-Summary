@@ -1,3 +1,4 @@
+/// <reference path="types.d.ts" />
 Module.register("MMM-LLM-Summary", {
   defaults: {
     // LLM provider config

@@ -1,3 +1,4 @@
+/// <reference path="types.d.ts" />
 const NodeHelper = require("node_helper");
 let OpenAI;
 
