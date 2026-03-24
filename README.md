@@ -4,6 +4,8 @@ A [MagicMirror²](https://magicmirror.builders/) module that uses an LLM to summ
 
 Supports any OpenAI-compatible API — OpenAI, Anthropic, Ollama, LM Studio, and more.
 
+![Screenshot](img/screenshot.png)
+
 ## Installation
 
 ```bash
