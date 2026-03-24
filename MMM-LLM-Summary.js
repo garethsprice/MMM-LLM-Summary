@@ -74,7 +74,10 @@ Module.register("MMM-LLM-Summary", {
     }
 
     var moduleData = this.collectModuleData();
-    var normalizedData = this.normalizeForComparison(moduleData);
+    // Exclude current time from change detection — it always changes
+    var dataForComparison = Object.assign({}, moduleData);
+    delete dataForComparison["Current Time"];
+    var normalizedData = this.normalizeForComparison(dataForComparison);
     var dataChanged = normalizedData !== this.lastNormalizedData;
 
     if (dataChanged) {
@@ -146,6 +149,15 @@ Module.register("MMM-LLM-Summary", {
 
   collectModuleData: function () {
     var data = {};
+    data["Current Time"] = new Date().toLocaleString("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+      timeZoneName: "short",
+    });
     for (var i = 0; i < this.config.modules.length; i++) {
       var mod = this.config.modules[i];
       var selector = mod.selector || "." + mod.name;
