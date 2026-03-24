@@ -59,7 +59,7 @@ module.exports = NodeHelper.create({
 
       // Build system prompt (static — maximizes prefix caching on OpenAI)
       var systemPrompt = config.systemPrompt ||
-        "You are a concise dashboard assistant. Summarize the following dashboard data in a brief, helpful way for someone glancing at a wall-mounted display. Be conversational but brief. Use no more than 2-3 sentences.";
+        "You are a concise dashboard assistant. Summarize the following dashboard data in a brief, helpful way for someone glancing at a wall-mounted display. Be conversational but brief. Use no more than 2-3 sentences. IMPORTANT: The \"Current Time\" field is the actual current date and time. Any sunrise/sunset times shown in weather data are NOT the current time — they indicate when the sun rises or sets today. Never confuse them with the current time.";
 
       // Build user content — diff-based if we have previous data
       var userContent = this.buildUserContent(moduleData, previousData, config.userPrompt);
