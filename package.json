@@ -26,7 +26,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "openai": "^6.32.0"
+    "openai": "^6.34.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
